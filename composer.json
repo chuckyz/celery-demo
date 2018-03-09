@@ -1,0 +1,6 @@
+{
+    "require": {
+        "massivescale/celery-php": "dev-master",
+        "predis/predis": "^1.1"
+    }
+}

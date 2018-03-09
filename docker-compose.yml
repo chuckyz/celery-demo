@@ -1,0 +1,43 @@
+version: '3.2'
+
+services:
+  mysql:
+    image: mysql:5.7
+    volumes: 
+      - dbdata:/var/lib/mysql
+    restart: always
+    ports:
+      - "127.0.0.1:3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: celery
+      MYSQL_DATABASE: celery
+      MYSQL_USER: celery
+      MYSQL_PASSWORD: celery
+
+  rabbitmq:
+    image: rabbitmq:3.7-alpine
+    restart: always
+    ports:
+      - "5671:5671"
+      - "5672:5672"
+  
+  postgresql:
+    image: postgres:9.6
+    volumes:
+      - pgdata:/var/lib/pgsql
+    restart: always
+    ports:
+      - "127.0.0.1:5432:5432"
+    environment:
+      POSTGRES_PASSWORD: celery
+      POSTGRES_USER: celery
+
+  redis:
+    image: redis
+    restart: always
+    ports: 
+      - "6379:6379"
+      
+volumes:
+  dbdata:
+  pgdata:
