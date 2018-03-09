@@ -1,3 +1,4 @@
+# Setup for demo ETL process.  Unused.
 import subprocess as sub
 import shlex
 
